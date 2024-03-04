@@ -3,33 +3,33 @@
 /**
 * bubble_sort - Sorts using bubble sort algorithm
 *
-* @arr: the array of integers
-* @siz: the size of array
+* @array: the array of integers
+* @size: the size of array
 */
 
-void bubble_sort(int *arr, size_t siz)
+void bubble_sort(int *array, size_t size)
 {
 	size_t k, j;
 	int tem, checker;
 
-	if (siz <= 1 || arr == NULL)
+	if (size <= 1 || array == NULL)
 	{
 		return;
 	}
 
-	for (k = 0; k < (siz - 1); k++)
+	for (k = 0; k < (size - 1); k++)
 	{
 		checker = 0;
 
 		for (j = 0; j < (size - 1); j++)
 		{
-			if (arr[j] > arr[j + 1])
+			if (array[j] > array[j + 1])
 			{
-				tem = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tem;
+				tem = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = tem;
 
-				print_arr(arr, siz);
+				print_array(array, size);
 				checker = 1;
 			}
 		}
