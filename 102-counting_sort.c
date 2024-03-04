@@ -77,7 +77,7 @@ void set_arr(int *array, size_t size, int val)
 */
 void count_sort(int *array, size_t size)
 {
-	int index, j, max, *count_arr, *ar_cpy;
+	int index, j, max, *count_ar, *ar_cpy;
 	size_t i;
 
 	if (size < 2 || arr == NULL)
@@ -86,29 +86,29 @@ void count_sort(int *array, size_t size)
 	max = find_max(array, size);
 
 	ar_cpy = malloc(sizeof(int) * size);
-	count_arr = malloc(sizeof(int) * (max + 1));
+	count_ar = malloc(sizeof(int) * (max + 1));
 
-	if (count_arr == NULL || ar_cpy == NULL)
+	if (count_ar == NULL || ar_cpy == NULL)
 		return;
 
-	arraysort(array, ar_cpy, size);
-	set_arr(count_arr, (size_t)(max + 1), 0);
+	array_sort(array, ar_cpy, size);
+	set_arr(count_ar, (size_t)(max + 1), 0);
 
 	for (i = 0; i < size; i++)
-		count_arr[array[i]] += 1;
+		count_ar[array[i]] += 1;
 
 	for (j = 1; j <= max; j++)
-		count_arr[j] += count_arr[j - 1];
+		count_ar[j] += count_ar[j - 1];
 
-	print_array(count_arr, (size_t)(max + 1));
+	print_array(count_ar, (size_t)(max + 1));
 
 	for (i = 0; i < size; i++)
 	{
-		index = count_arr[ar_cpy[i]];
+		index = count_ar[ar_cpy[i]];
 		array[index - 1] = ar_cpy[i];
 		count_arr[ar_cpy[i]] = index - 1;
 	}
 
 	free(ar_cpy);
-	free(count_arr);
+	free(count_ar);
 }
