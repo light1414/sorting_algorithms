@@ -16,14 +16,14 @@ void radix_sort(int *array, size_t size)
 	while (flag)
 	{
 		flag = 0;
-		for (k = 1, f = 1; k <  size; i++, f++)
+		for (k = 1, f = 1; k <  size; k++, f++)
 		{
 			if ((array[k - 1] % (n * 10)) / ((n * 10) / 10) > 0)
 				flag = 1;
 			if (((array[k - 1] % n) / (n / 10)) > ((array[k] % n) / (n / 10)))
 			{
 				array[k - 1] = array[k - 1] + array[k];
-				array[k] = array[i - 1] - array[k];
+				array[k] = array[k - 1] - array[k];
 				array[k - 1] = array[k - 1] - array[k];
 				if ((k - 1) > 0)
 					k = k - 2;
