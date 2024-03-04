@@ -34,11 +34,11 @@ void sorted(int *array, int a, int z, size_t n)
 {
 	if (a < z)
 	{
-		int pivot = partition(arr, a, z, n);
+		int pivot = partition(array, a, z, n);
 
-		sorted(arr, a, pivot - 1, n);
+		sorted(array, a, pivot - 1, n);
 
-		sorted(arr, pivot + 1, z, n);
+		sorted(array, pivot + 1, z, n);
 	}
 }
 
