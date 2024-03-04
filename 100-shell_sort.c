@@ -37,20 +37,20 @@ void shell_sort(int *array, size_t size)
 /**
 * power - A function to sort the power of a numb
 *
-* @numb: the number to find the power
-* @pow: power of the number
+* @number: the number to find the power
+* @power: power of the number
 *
-* Return: the number raised to the power
+* Return: the numb raised to the power
 */
-size_t power(size_t numb, size_t power)
+size_t power(size_t number, size_t power)
 {
-	size_t i, result = 1;
+	size_t p, result = 1;
 
 	if (power == 0)
 	{
 		return (1);
 	}
-	for (i = 0; i < power; i++)
+	for (p = 0; p < power; p++)
 	{
 		result *= number;
 	}
@@ -69,13 +69,13 @@ size_t power(size_t numb, size_t power)
 */
 void interval_insertion(int *array, int size, int interval)
 {
-	int temp, i, j;
+	int temp, i, k;
 
-	j = interval;
+	k = interval;
 
-	while (j < size)
+	while (k < size)
 	{
-		i = j - interval;
+		i = k - interval;
 
 		while (i >= 0)
 		{
@@ -91,6 +91,6 @@ void interval_insertion(int *array, int size, int interval)
 			}
 			i = i - interval;
 		}
-		j++;
+		k++;
 	}
 }
