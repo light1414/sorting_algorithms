@@ -3,33 +3,33 @@
 /**
 * shell_sort - Shell sort sorting implimetatiion
 *
-* @arr: the array of integers
-* @siz: array size
+* @array: the array of integers
+* @size: array size
 */
 
-void shell_sort(int *arr, size_t siz)
+void shell_sort(int *array, size_t size)
 {
-	size_t interval;
+	size_t inter;
 
-	if (arr == NULL || siz == 0)
+	if (array == NULL || size == 0)
 	{
 		return;
 	}
 
-	interval = 1;
+	inter = 1;
 
-	while (interval < siz)
+	while (inter < siz)
 	{
-		interval = (interval * 3) + 1;
+		inter = (inter * 3) + 1;
 	}
 
-	interval = interval / 3;
+	inter = inter / 3;
 
-	while (interval >= 1)
+	while (inter >= 1)
 	{
-		interval_insertion(arr, (int)siz, (int)interval);
-		print_array(arr, siz);
-		interval /= 3;
+		inter_insertion(array, (int)size, (int)inter);
+		print_array(array, size);
+		inter /= 3;
 	}
 }
 
@@ -61,29 +61,29 @@ size_t power(size_t numb, size_t pow)
 /**
 * interval_insertion - Insertion sort at a given interval
 *
-* @arr: the array to perform the insertion at interval sort
-* @siz: the array size
+* @array: the array to perform the insertion at interval sort
+* @size: the array size
 * @interval: the intervals to implement insertion sort
 *
 * Return: void
 */
-void interval_insertion(int *arr, int siz, int interval)
+void interval_insertion(int *array, int size, int interval)
 {
-	int tem, i, j;
+	int temp, i, j;
 
 	j = interval;
 
-	while (j < siz)
+	while (j < size)
 	{
 		i = j - interval;
 
 		while (i >= 0)
 		{
-			if (arr[i] > arr[i + interval])
+			if (array[i] > array[i + interval])
 			{
-				tem = arr[i];
-				arr[i] = arr[i + interval];
-				arr[i + interval] = tem;
+				temp = array[i];
+				array[i] = array[i + interval];
+				array[i + interval] = temp;
 			}
 			else
 			{
