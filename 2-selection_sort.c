@@ -3,35 +3,35 @@
 /**
 * selection_sort - Sorts the selection implemention type
 *
-* @arr: the array of integers
-* @siz: size of array
+* @array: the array of integers
+* @size: the array size
 */
 
-void selection_sort(int *arr, size_t siz)
+void selection_sort(int *array, size_t size)
 {
-	int tem, minimum, min_index;
+	int temp, minimum, min_index;
 	size_t i, j;
 
 	for (i = 0; i < siz; i++)
 	{
-		minimum = arr[i];
+		minimum = array[i];
 		min_index = i;
 
 		for (j = i; j < siz; j++)
 		{
-			if (minimum > arr[j])
+			if (minimum > array[j])
 			{
 				min_index = j;
-				minimum = arr[j];
+				minimum = array[j];
 			}
 		}
 		if (min_index != (int)i)
 		{
-			tem = arr[i];
-			arr[i] = arr[min_index];
-			arr[min_index] = tem;
+			temp = array[i];
+			array[i] = array[min_index];
+			array[min_index] = temp;
 
-			print_arr(arr, siz);
+			print_array(array, size);
 		}
 	}
 }
