@@ -42,15 +42,15 @@ void shell_sort(int *array, size_t size)
 *
 * Return: the number raised to the power
 */
-size_t power(size_t numb, size_t pow)
+size_t power(size_t numb, size_t power)
 {
 	size_t i, result = 1;
 
-	if (pow == 0)
+	if (power == 0)
 	{
 		return (1);
 	}
-	for (i = 0; i < pow; i++)
+	for (i = 0; i < power; i++)
 	{
 		result *= number;
 	}
