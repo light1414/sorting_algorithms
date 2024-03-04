@@ -3,34 +3,34 @@
 /**
 * quick_sort - The implementation of quick_sort with Lomuto partition
 *
-* @arr: the array of integers
-* @siz: the size of array
+* @array: the array of integers
+* @size: the size of array
 */
 
-void quick_sort(int *arr, size_t siz)
+void quick_sort(int *array, size_t size)
 {
-	int my_size = (int)siz;
+	int my_size = (int)size;
 
 	if (!array || my_size < 0)
 	{
 		return;
 	}
 
-	sorted(arr, 0, my_size - 1, siz);
+	sorted(array, 0, my_size - 1, size);
 }
 
 
 /**
 * sorted - Recursive the call partitions of quick sort
 *
-* @arr: the array of integers
+* @array: the array of integers
 * @a: Pointer(or origin) to the first array element
 * @z: Pointer to the last array element
 * @n: size of array
 *
 * Return: void
 */
-void sorted(int *arr, int a, int z, size_t n)
+void sorted(int *array, int a, int z, size_t n)
 {
 	if (a < z)
 	{
@@ -46,41 +46,41 @@ void sorted(int *arr, int a, int z, size_t n)
 /**
 * partition - It sorts each partition
 *
-* @arr: the array of integers
+* @array: the array of integers
 * @a: Pointer to the first array element
 * @z: Pointer to the last array element
 * @n: size of array
 *
 * Return: void
 */
-int partition(int *arr, int a, int z, size_t n)
+int partition(int *array, int a, int z, size_t n)
 {
 	int j = a + 1;
 	int i = a;
-	int tem;
+	int temp;
 
 	while (j < z && a >= 0)
 	{
-		if (arr[i] <= arr[z])
+		if (array[i] <= array[z])
 			i++, j++;
-		else if (arr[j] < arr[z])
+		else if (array[j] < array[z])
 		{
-			tem = arr[i];
-			arr[i] = arr[j];
-			arr[j] = tem;
-			print_arr(arr, n);
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+			print_array(array, n);
 			j++, i++;
 		}
 		else
 			j++;
 	}
-	if (arr[j] <= arr[i])
+	if (array[j] <= array[i])
 	{
-		tem = arr[i];
-		arr[i] = arr[j];
-		arr[j] = tem;
-		if (arr[i] != arr[j])
-			print_arr(arr, n);
+		temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+		if (array[i] != array[j])
+			print_array(array, n);
 	}
 	else
 	{
