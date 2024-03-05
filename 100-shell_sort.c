@@ -1,96 +1,96 @@
 #include "sort.h"
 
 /**
-* shell_sort - Shell sort sorting implimetatiion
+* shell_sort - shell sort sorting implementation
 *
-* @array: the array of integers
+* @array: integers array 
 * @size: array size
 */
 
 void shell_sort(int *array, size_t size)
 {
-	size_t inter;
+	size_t interval;
 
 	if (array == NULL || size == 0)
 	{
 		return;
 	}
 
-	inter = 1;
+	interval = 1;
 
-	while (inter < size)
+	while (interval < size)
 	{
-		inter = (inter * 3) + 1;
+		interval = (interval * 3) + 1;
 	}
 
-	inter = inter / 3;
+	interval = interval / 3;
 
-	while (inter >= 1)
+	while (interval >= 1)
 	{
-		inter_insertion(array, (int)size, (int)inter);
+		interval_insertion(array, (int)size, (int)interval);
 		print_array(array, size);
-		inter /= 3;
+		interval /= 3;
 	}
 }
 
 
 /**
-* power - A function to sort the power of a numb
+* power - Functions to find power of a numb
 *
-* @number: the number to find the power
-* @power: power of the number
+* @num: the number to find the power
+* @pow: power of the number
 *
-* Return: the numb raised to the power
+* Return: Number raised to the power
 */
-size_t power(size_t number, size_t power)
+size_t power(size_t numb, size_t pow)
 {
-	size_t p, result = 1;
+	size_t i, result = 1;
 
-	if (power == 0)
+	if (pow == 0)
 	{
 		return (1);
 	}
-	for (p = 0; p < power; p++)
+	for (i = 0; i < pow; i++)
 	{
-		result *= number;
+		result *= num;
 	}
 	return (result);
 }
 
 
 /**
-* interval_insertion - Insertion sort at a given interval
+* interval_insertion - the insertion sort at a given interval
 *
-* @array: the array to perform the insertion at interval sort
-* @size: the array size
-* @interval: the intervals to implement insertion sort
+* @array: array to perform the insertion at interval sort
+* @size: array size
+* @inter: intervals to implement insertion sort
 *
 * Return: void
 */
-void interval_insertion(int *array, int size, int interval)
+void interval_insertion(int *array, int size, int inter)
 {
-	int temp, i, k;
+	int tem, i, j;
 
-	k = interval;
+	j = inter;
 
-	while (k < size)
+	while (j < size)
 	{
-		i = k - interval;
+		i = j - inter;
 
 		while (i >= 0)
 		{
-			if (array[i] > array[i + interval])
+			if (array[i] > array[i + inter])
 			{
-				temp = array[i];
-				array[i] = array[i + interval];
-				array[i + interval] = temp;
+				tem = array[i];
+				array[i] = array[i + inter];
+				array[i + inter] = tem;
 			}
 			else
 			{
 				break;
 			}
-			i = i - interval;
+			i = i - inter;
 		}
-		k++;
+		j++;
 	}
 }
