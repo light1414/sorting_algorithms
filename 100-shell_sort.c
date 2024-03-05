@@ -42,7 +42,7 @@ void shell_sort(int *array, size_t size)
 *
 * Return: Number raised to the power
 */
-size_t power(size_t numb, size_t pow)
+size_t pow(size_t numb, size_t pow)
 {
 	size_t i, result = 1;
 
