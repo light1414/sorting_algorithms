@@ -48,7 +48,7 @@ void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 void interval_insertion(int *array, int size, int inter);
-size_t pow(size_t num, size_t pow);
+size_t power(size_t number, size_t power);
 int compare_swap(listint_t **list, listint_t **node1, listint_t **node2);
 /* void sort_deck(deck_node_t **deck); */
 

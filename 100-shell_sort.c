@@ -3,7 +3,7 @@
 /**
 * shell_sort - shell sort sorting implementation
 *
-* @array: integers array 
+* @array: integers array
 * @size: array size
 */
 
@@ -37,22 +37,22 @@ void shell_sort(int *array, size_t size)
 /**
 * power - Functions to find power of a numb
 *
-* @num: the number to find the power
-* @pow: power of the number
+* @number: the number to find the power
+* @power: power of the number
 *
 * Return: Number raised to the power
 */
-size_t pow(size_t numb, size_t pow)
+size_t power(size_t number, size_t power)
 {
 	size_t i, result = 1;
 
-	if (pow == 0)
+	if (power == 0)
 	{
 		return (1);
 	}
-	for (i = 0; i < pow; i++)
+	for (i = 0; i < power; i++)
 	{
-		result *= num;
+		result *= numer;
 	}
 	return (result);
 }
@@ -69,13 +69,13 @@ size_t pow(size_t numb, size_t pow)
 */
 void interval_insertion(int *array, int size, int inter)
 {
-	int tem, i, j;
+	int tem, i, t;
 
-	j = inter;
+	t = inter;
 
-	while (j < size)
+	while (t < size)
 	{
-		i = j - inter;
+		i = t - inter;
 
 		while (i >= 0)
 		{
@@ -91,6 +91,6 @@ void interval_insertion(int *array, int size, int inter)
 			}
 			i = i - inter;
 		}
-		j++;
+		t++;
 	}
 }
