@@ -1,9 +1,9 @@
 #include "sort.h"
 
 /**
-* shell_sort - shell sort sorting implementation
+* shell_sort - Implements the shell sort sorting
 *
-* @array: integers array
+* @array: the array of integers
 * @size: array size
 */
 
@@ -20,7 +20,7 @@ void shell_sort(int *array, size_t size)
 
 	while (interval < size)
 	{
-		interval = (interval * 3) + 1;
+		interval = (intervall * 3) + 1;
 	}
 
 	interval = interval / 3;
@@ -35,12 +35,12 @@ void shell_sort(int *array, size_t size)
 
 
 /**
-* power - Functions to find power of a numb
+* power - Functions to sort the power of a num
 *
-* @number: the number to find the power
-* @power: power of the number
+* @number: num to sort the power
+* @power: Power of the num
 *
-* Return: Number raised to the power
+* Return: num raised to the power
 */
 size_t power(size_t number, size_t power)
 {
@@ -52,45 +52,45 @@ size_t power(size_t number, size_t power)
 	}
 	for (i = 0; i < power; i++)
 	{
-		result *= numer;
+		result *= number;
 	}
 	return (result);
 }
 
 
 /**
-* interval_insertion - the insertion sort at a given interval
+* interval_insertion - Insertion sort at a given interval
 *
-* @array: array to perform the insertion at interval sort
-* @size: array size
-* @inter: intervals to implement insertion sort
+* @array: the array to perform the insertion at interval sort
+* @size: size of array
+* @interval: the intervals to implement insertion sort
 *
 * Return: void
 */
-void interval_insertion(int *array, int size, int inter)
+void interval_insertion(int *array, int size, int interval)
 {
-	int tem, i, t;
+	int tem, i, j;
 
-	t = inter;
+	k = interval;
 
-	while (t < size)
+	while (k < size)
 	{
-		i = t - inter;
+		i = k - interval;
 
 		while (i >= 0)
 		{
-			if (array[i] > array[i + inter])
+			if (array[i] > array[i + interval])
 			{
 				tem = array[i];
-				array[i] = array[i + inter];
-				array[i + inter] = tem;
+				array[i] = array[i + interval];
+				array[i + interval] = tem;
 			}
 			else
 			{
 				break;
 			}
-			i = i - inter;
+			i = i - interval;
 		}
-		t++;
+		k++;
 	}
 }
