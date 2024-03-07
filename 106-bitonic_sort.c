@@ -1,53 +1,53 @@
 #include "sort.h"
 #include <stdio.h>
 /**
- * prt_bitonic - Prints array modified by
+ * prt_bitonic - Prints the modified array by
  * bitonic algorithm
  *
- * @arr: The input array
- * @A: first index
- * @B: last index
+ * @arr: the input array
+ * @i: The first index
+ * @limit: the last index
  * Return: no return
  */
-void prt_bitonic(int *arr, int A, int B)
+void prt_bitonic(int *arr, int i, int limit)
 {
-	char *tep;
+	char *sept;
 
-	for (tep = ""; A < B; A++)
+	for (sept = ""; i < limit; i++)
 	{
-		printf("%s%d", sep, arr[A]);
-		tep = ", ";
+		printf("%s%d", sept, arr[i]);
+		sept = ", ";
 	}
 	printf("\n");
 }
 
 /**
- * sot_up - Sorts array in UP mode
+ * sot_up - Sorts the array in UP mode
  *
- * @arr: input array
- * @l: the first index
- * @h: the last index
+ * @arr: the input array
+ * @low: the first index
+ * @high: last index
  * Return: no return
  */
-void sot_up(int *arr, int l, int h)
+void sot_up(int *arr, int low, int high)
 {
-	int i, j, max;
+	int i, j, maxi;
 
-	for (i = l; i < h; i++)
+	for (i = low; i < high; i++)
 	{
-		max = i;
+		maxi = i;
 
-		for (j = i + 1; j < h; j++)
+		for (j = i + 1; j < high; j++)
 		{
-			if (arr[max] > arr[j])
-				max = j;
+			if (arr[maxi] > arr[j])
+				maxi = j;
 		}
 
-		if (max != i)
+		if (maxi != i)
 		{
-			arr[i] = arr[i] + arr[max];
-			arr[max] = arr[i] - arr[max];
-			arr[i] = arr[i] - arr[max];
+			arr[i] = arr[i] + arr[maxi];
+			arr[maxi] = arr[i] - arr[maxi];
+			arr[i] = arr[i] - arr[maxi];
 		}
 	}
 }
@@ -55,76 +55,76 @@ void sot_up(int *arr, int l, int h)
 /**
  * sot_down - Sorts the array in DOWN mode
  *
- * @arr: input array
- * @l: the first index
- * @h: the last index
+ * @arr: The input array
+ * @low: The first index
+ * @high: last index
  * Return: no return
  */
-void sot_down(int *arr, int l, int h)
+void sot_down(int *arr, int low, int high)
 {
-	int i, j, max;
+	int i, j, maxi;
 
-	for (i = l; i < h; i++)
+	for (i = low; i < high; i++)
 	{
-		max = i;
+		maxi = i;
 
-		for (j = i + 1; j < h; j++)
+		for (j = i + 1; j < high; j++)
 		{
-			if (arr[max] < arr[j])
-				max = j;
+			if (arr[maxi] < arr[j])
+				maxi = j;
 		}
 
-		if (max != i)
+		if (maxi != i)
 		{
-			arr[i] = arr[i] + arr[max];
-			arr[max] = arr[i] - arr[max];
-			arr[i] = arr[i] - arr[max];
+			arr[i] = arr[i] + arr[maxi];
+			arr[maxi] = arr[i] - arr[maxi];
+			arr[i] = arr[i] - arr[maxi];
 		}
 	}
 }
 
 /**
- * Recursion - Recursive function that executes the bitonic sort
+ * recursion - Function that executes the bitonic sort
  * algorithm
  *
- * @arr: input array
- * @l: the first index
- * @h: the last index
- * @cool: UP or DOWN
- * @size: size of the array
+ * @arr: the input array
+ * @low: the first index
+ * @high: last index
+ * @bool: UP or DOWN
+ * @size: array size
  * Return: no return
  */
-void Recursion(int *arr, int l, int h, int cool, size_t size)
+void recursion(int *arr, int low, int high, int bool, size_t size)
 {
-	char *option;
+	char *opt;
 
-	if (h - l < 2)
+	if (high - low < 2)
 		return;
 
-	option = (cool == 0) ? "UP" : "DOWN";
-	printf("Merging [%d/%ld] (%s):\n", h - l, size, option);
-	prt_bitonic(arr, l, h);
+	opt = (bool == 0) ? "UP" : "DOWN";
+	printf("Merging [%d/%ld] (%s):\n", high - low, size, opt);
+	prt_bitonic(arr, low, high);
 
-	if (h - l == 2)
+	if (high - low == 2)
 		return;
 
-	Recursion(arr, l, (h + l) / 2, 0, size);
-	sot_up(arr, l, (h + l) / 2);
-	printf("Result [%d/%ld] (%s):\n", ((h + l) / 2) - l, size, "UP");
-	prt_bitonic(arr, l, (h + l) / 2);
+	recursion(arr, low, (high + low) / 2, 0, size);
+	sot_up(arr, low, (high + low) / 2);
+	printf("Result [%d/%ld] (%s):\n", ((high + low) / 2) - low, size, "UP");
+	prt_bitonic(arr, low, (high + low) / 2);
 
-	Recursion(arr, (h + l) / 2, h, 1, size);
-	sot_down(arr, (h + l) / 2, h);
-	printf("Result [%d/%ld] (%s):\n", h - ((h + l) / 2), size, "DOWN");
-	prt_bitonic(arr, (h + l) / 2, h);
+	recursion(arr, (high + low) / 2, high, 1, size);
+	sot_down(arr, (high + low) / 2, high);
+	printf("Result [%d/%ld] (%s):\n", high - ((high + low) / 2), size, "DOWN");
+	prt_bitonic(arr, (high + low) / 2, high);
 }
 
 /**
- * bitonic_sort - Function that executes the bitonic_sort
+ * bitonic_sort - The first function that starts the bitonic_sort
  * algorithm
  *
- * @array: The input array
- * @size: thr size of the array
+ * @array: the input array
+ * @size: the array size
  * Return: no return
  */
 void bitonic_sort(int *array, size_t size)
@@ -135,5 +135,5 @@ void bitonic_sort(int *array, size_t size)
 	recursion(array, 0, size, 0, size);
 	sot_up(array, 0, size);
 	printf("Result [%ld/%ld] (%s):\n", size, size, "UP");
-	print_bitonic(array, 0, size);
+	prt_bitonic(array, 0, size);
 }

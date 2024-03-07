@@ -122,8 +122,8 @@ void mer_sort(int *arr, int *tmp, size_t L, size_t R)
 	else
 		m = (L + R) / 2;
 
-	m_sort(arr, tmp, L, m);
-	m_sort(arr, tmp, (m + L), R);
+	mer_sort(arr, tmp, L, m);
+	mer_sort(arr, tmp, (m + L), R);
 	merger(arr, tmp, L, m, R);
 }
 
@@ -136,7 +136,7 @@ void mer_sort(int *arr, int *tmp, size_t L, size_t R)
 */
 void merge_sort(int *array, size_t size)
 {
-	size_t left, right;
+	size_t L, R;
 	int *tem_arr;
 
 	if (size < 2)
@@ -147,10 +147,10 @@ void merge_sort(int *array, size_t size)
 	if (tem_arr == NULL)
 		return;
 
-	left = 0;
-	right = size - 1;
+	L = 0;
+	R = size - 1;
 
-	m_sort(array, tem_arr, left, right);
+	mer_sort(array, tem_arr, L, R);
 
 	free(tem_arr);
 }

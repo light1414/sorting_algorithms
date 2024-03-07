@@ -6,9 +6,9 @@
 #include <string.h>
 
 /**
-* struct listint_s - Doubly list node
+* struct listint_s - the doubly list node
 *
-* @n: Integer stored in the node
+* @n: the Integer stored in the node
 * @prev: Pointer to the previous element of the list
 * @next: Pointer to the next element of the list
 */
@@ -28,18 +28,18 @@ void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 
-/** Functions in Counting Sort **/
+/** Counting Sort Functions **/
 void counting_sort(int *array, size_t size);
-int find_max(int *array, size_t size);
-void arraycpy(int *array, int *new_arr, size_t size);
-void set_array(int *array, size_t size, int value);
+int sort_max(int *array, size_t size);
+void array_sort(int *array, int *new_arr, size_t size);
+void set_arr(int *array, size_t size, int value);
 
-/** Functions in merge sort **/
+/** Merge sort Fnctions **/
 void merge_sort(int *array, size_t size);
-void m_copyarr(int *source, int *dest, size_t left, size_t right);
-void m_print(int *ar, int *tmp, size_t l, size_t m, size_t r);
-void merger(int *ar, int *tmp, size_t l, size_t m, size_t r);
-void m_sort(int *ar, int *tmp, size_t l, size_t r);
+void mer_copyarr(int *S, int *D, size_t L, size_t R);
+void mer_print(int *arr, int *tmp, size_t P, size_t M, size_t r);
+void merger(int *arr, int *tmp, size_t l, size_t M, size_t r);
+void mer_sort(int *arr, int *tmp, size_t L, size_t R);
 
 void heap_sort(int *array, size_t size);
 void radix_sort(int *array, size_t size);

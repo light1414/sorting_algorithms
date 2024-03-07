@@ -69,7 +69,7 @@ size_t power(size_t number, size_t power)
 */
 void interval_insertion(int *array, int size, int interval)
 {
-	int tem, i, j;
+	int tem, i, k;
 
 	k = interval;
 
